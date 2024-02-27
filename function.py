@@ -1,4 +1,5 @@
 import time
+from flask import Request
 from selenium import  webdriver
 from selenium.webdriver.edge.service import Service
 import smtplib
@@ -10,11 +11,11 @@ import ssl
 
 
 
-def send_email(subject, body):
+def send_email(email,subject, body):
     try:
         sender_email = 'support@bixid.in'
         sender_password = 'support@bixid'
-        recipient_email = 'dlovej009@gmail.com'
+        recipient_email =email
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = recipient_email
@@ -43,14 +44,19 @@ class ONLOGIN:
         self.driver=webdriver.Edge(service=service,options=options)
         # self.driver=webdriver.Edge()
         print(self.driver.capabilities)
-    def auto_email(self):
+    def auto_email(self,email):
         try:
             print("clvdnvdovhsfushss;hufgf;lufjh;vuv;sa")
             self.driver.get("https://google.com")
             title=self.driver.title
-            send_email(title , f"got this as title :- {title}")
-            
-            
+            send_email(email,title , f"got this as title :- {title}")
         except Exception as e :
-            print(e)        
+            print(e)    
+            
+            
+            
+def senf_email(email):
+        obj=ONLOGIN()
+        obj.auto_email(email)
+        
        

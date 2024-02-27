@@ -27,6 +27,12 @@
             margin-bottom: 10px;
         }
 
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
         button {
             background-color: #4caf50;
             color: white;
@@ -47,8 +53,9 @@
     {% if title %}
     <p>{{ title }} <p/>
         {% endif %}
-    <label>Click the button to start the process:</label>
-    <button type="submit">Start Process</button>
+    <label>Enter your email:</label>
+    <input type="email" id="recipientEmail" name="recipientEmail" required>
+    <button type="submit">Get an email</button>
 </form>
 
 
