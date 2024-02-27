@@ -40,8 +40,7 @@ class ONLOGIN:
         options.use_chromium = True
         options.add_argument("headless")
         options.add_argument("disable-gpu")
-        service = Service(executable_path='msedgedriver.exe')
-        self.driver=webdriver.Edge(service=service,options=options)
+        self.driver=webdriver.Edge(options=options)
         # self.driver=webdriver.Edge()
         print(self.driver.capabilities)
     def auto_email(self,email):
