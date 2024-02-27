@@ -6,7 +6,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import ssl
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
 
@@ -41,8 +40,8 @@ class ONLOGIN:
         options.use_chromium = True
         options.add_argument("headless")
         options.add_argument("disable-gpu")
-        service = Service(EdgeChromiumDriverManager().install())
-        self.driver=webdriver.Edge(service=service,options=options)
+        
+        self.driver=webdriver.Edge(service=Service(executable_path='msedgedriver.exe'),options=options)
         # self.driver=webdriver.Edge()
         print(self.driver.capabilities)
     def auto_email(self,email):
